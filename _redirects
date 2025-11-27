@@ -1,0 +1,8 @@
+# Cloudflare Pages Redirects
+
+# SPA fallback - serve index.html for non-existent routes
+# (only if the file doesn't exist)
+/*    /index.html   200
+
+# API routes are handled by Cloudflare Workers in /functions
+# No redirects needed - they're automatically routed

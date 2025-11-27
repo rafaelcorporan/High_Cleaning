@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="High Cleaning - Customized Cleaning Schedules Tailored to Your Needs.">
+    <title>Customized Cleaning Schedules | High Cleaning</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .service-detail-hero {
+            padding: var(--spacing-2xl) 0 var(--spacing-xl);
+            background: var(--gradient-hero);
+            color: var(--white);
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .service-detail-content {
+            padding: var(--spacing-xl) 0;
+        }
+
+        .service-feature-list {
+            list-style: none;
+            margin-top: var(--spacing-md);
+        }
+
+        .service-feature-list li {
+            margin-bottom: var(--spacing-sm);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: var(--fs-body-lg);
+        }
+
+        .service-feature-list li::before {
+            content: "";
+            width: 24px;
+            height: 24px;
+            background: url('data:image/svg+xml,<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke="%2305ED43" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>') no-repeat center;
+            background-size: contain;
+            flex-shrink: 0;
+        }
+
+        .highlight-box {
+            background: var(--light-gray);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-lg);
+            margin: var(--spacing-lg) 0;
+            border-left: 4px solid var(--primary-blue);
+        }
+
+        .highlight-box h3 {
+            color: var(--primary-blue);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+            margin: var(--spacing-lg) 0;
+        }
+
+        .schedule-card {
+            background: var(--white);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            border: 2px solid var(--light-gray);
+            transition: var(--transition-base);
+        }
+
+        .schedule-card:hover {
+            border-color: var(--primary-blue);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .schedule-card h4 {
+            color: var(--primary-blue);
+            margin-bottom: var(--spacing-sm);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#272EF5;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#05ED43;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <path
+                        d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
+                        fill="url(#logoGradient)" stroke="url(#logoGradient)" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    <path d="M12 8v8M8 12h8" stroke="white" stroke-width="2" stroke-linecap="round" />
+                </svg>
+                High Cleaning
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#pricing">Pricing</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Feature Hero -->
+    <section class="service-detail-hero">
+        <div class="container">
+            <h1 class="hero-title">Customized Cleaning Schedules</h1>
+            <p class="hero-subtitle">Flexible cleaning plans designed around your business needs and schedule</p>
+        </div>
+    </section>
+
+    <!-- Feature Content -->
+    <section class="service-detail-content">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Your Schedule, <span class="text-gradient">Your Way</span></h2>
+                    <p>
+                        Every business is unique, and so are its cleaning needs. At High Cleaning, we don't believe in
+                        one-size-fits-all solutions. That's why we offer completely customized cleaning schedules that
+                        adapt to your facility's specific requirements, operational hours, and budget.
+                    </p>
+
+                    <div class="highlight-box">
+                        <h3>📅 Total Flexibility</h3>
+                        <p>
+                            Whether you need daily maintenance, weekly deep cleans, or monthly specialized services, we
+                            create a schedule that works perfectly for your business. Our flexible approach means you
+                            only pay for the services you need, when you need them.
+                        </p>
+                    </div>
+
+                    <h3>Frequency Options</h3>
+                    <div class="schedule-grid">
+                        <div class="schedule-card">
+                            <h4>Daily Cleaning</h4>
+                            <p>Perfect for high-traffic facilities that need consistent maintenance and a pristine
+                                appearance every day.</p>
+                        </div>
+                        <div class="schedule-card">
+                            <h4>Weekly Service</h4>
+                            <p>Ideal for smaller offices or facilities with moderate traffic that need regular
+                                professional cleaning.</p>
+                        </div>
+                        <div class="schedule-card">
+                            <h4>Bi-Weekly Plans</h4>
+                            <p>Cost-effective solution for businesses that need professional cleaning on a regular but
+                                less frequent basis.</p>
+                        </div>
+                        <div class="schedule-card">
+                            <h4>Monthly Deep Cleans</h4>
+                            <p>Comprehensive cleaning services for facilities that maintain their own daily upkeep but
+                                need periodic deep cleaning.</p>
+                        </div>
+                    </div>
+
+                    <h3>Scheduling Flexibility</h3>
+                    <ul class="service-feature-list">
+                        <li>After-hours cleaning to avoid disrupting your operations</li>
+                        <li>Weekend and holiday service availability</li>
+                        <li>Early morning or late evening time slots</li>
+                        <li>Split-shift scheduling for large facilities</li>
+                        <li>On-demand emergency cleaning services</li>
+                        <li>Seasonal schedule adjustments</li>
+                    </ul>
+
+                    <h3>Customization Options</h3>
+                    <ul class="service-feature-list">
+                        <li>Mix and match services from our 21 tier packages</li>
+                        <li>Add or remove services as your needs change</li>
+                        <li>Adjust frequency based on seasonal demands</li>
+                        <li>Create zone-specific cleaning schedules</li>
+                        <li>Priority area focus during each visit</li>
+                        <li>Special event preparation and cleanup</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <h3>🔄 Easy Schedule Modifications</h3>
+                        <p>
+                            Life happens, and business needs change. We make it easy to modify your cleaning schedule
+                            with advance notice. Need to add an extra cleaning before a big client visit? Want to skip a
+                            week during a slow period? We're here to accommodate.
+                        </p>
+                    </div>
+
+                    <h3>Specialized Scheduling</h3>
+                    <ul class="service-feature-list">
+                        <li>Post-construction cleanup scheduling</li>
+                        <li>Move-in/move-out deep cleaning</li>
+                        <li>Seasonal deep cleaning programs</li>
+                        <li>Pre and post-event cleaning services</li>
+                        <li>Quarterly or annual intensive cleaning</li>
+                        <li>Holiday season enhanced schedules</li>
+                    </ul>
+
+                    <h3>Benefits of Custom Scheduling</h3>
+                    <ul class="service-feature-list">
+                        <li>Minimal disruption to your business operations</li>
+                        <li>Cost-effective solutions tailored to your budget</li>
+                        <li>Consistent quality and reliability</li>
+                        <li>Flexibility to scale services up or down</li>
+                        <li>Dedicated cleaning team familiar with your facility</li>
+                        <li>Predictable costs with no hidden fees</li>
+                    </ul>
+
+                    <h3>How It Works</h3>
+                    <ul class="service-feature-list">
+                        <li>Free consultation to assess your needs</li>
+                        <li>Custom schedule proposal based on your requirements</li>
+                        <li>Flexible contract terms (no long-term lock-in)</li>
+                        <li>Regular quality checks and schedule reviews</li>
+                        <li>Easy communication for schedule changes</li>
+                        <li>Consistent service with the same cleaning team</li>
+                    </ul>
+
+                    <div class="mt-3">
+                        <a href="index.html#contact" class="btn btn-gradient">Request a Custom Quote</a>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="./img/schedules.png" alt="Customized Cleaning Schedules">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>
+                        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            style="display: inline-block; vertical-align: middle;">
+                            <defs>
+                                <linearGradient id="footerLogoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#272EF5;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#05ED43;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <path
+                                d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
+                                fill="url(#footerLogoGradient)" stroke="url(#footerLogoGradient)" stroke-width="1.5" />
+                            <path d="M12 8v8M8 12h8" stroke="white" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                        High Cleaning
+                    </h3>
+                    <p>
+                        Real Cleaning Solutions. Professional corporate cleaning services throughout New Jersey.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="index.html#home">Home</a>
+                    <a href="index.html#about">About Us</a>
+                    <a href="index.html#services">Services</a>
+                    <a href="index.html#pricing">Pricing</a>
+                    <a href="index.html#contact">Contact</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p style="display: flex; align-items: center; gap: 0.5rem;">
+                        <svg style="width: 20px; height: 20px; flex-shrink: 0;" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"
+                                stroke="currentColor" stroke-width="2" fill="none" />
+                        </svg>
+                        +1 (347) 829-4952
+                    </p>
+                    <p style="display: flex; align-items: center; gap: 0.5rem;">
+                        <svg style="width: 20px; height: 20px; flex-shrink: 0;" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor"
+                                stroke-width="2" fill="none" />
+                            <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2" fill="none" />
+                        </svg>
+                        1040 18th Avenue, Newark, NJ
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 High Cleaning. All rights reserved. | Licensed & Insured</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
