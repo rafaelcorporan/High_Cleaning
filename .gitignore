@@ -16,3 +16,8 @@ npm-debug.log*
 wrangler.toml
 dist/
 .dev.vars
+
+# Large Source Files
+*.af
+img/FLYER/*.af
+img/FLYER/old_/*.af
