@@ -1,9 +1,7 @@
 "use client"
 
-import { useState, useEffect, type ReactNode } from "react"
+import { useState, useEffect, type ReactNode, type FormEvent } from "react"
 import { Lock, ArrowRight, Shield, Home } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
 import { 
   verifyPassword, 
   isSessionValid, 
@@ -16,22 +14,24 @@ interface AccessGateProps {
 }
 
 export function AccessGate({ children }: AccessGateProps) {
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null)
+  const [mounted, setMounted] = useState(false)
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [password, setPassword] = useState("")
   const [error, setError] = useState("")
   const [isLoading, setIsLoading] = useState(false)
 
-  // Check session on mount
+  // Handle mounting and session check
   useEffect(() => {
-    setIsAuthenticated(isSessionValid())
+    setMounted(true)
+    const valid = isSessionValid()
+    setIsAuthenticated(valid)
   }, [])
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsLoading(true)
     setError("")
 
-    // Small delay for UX
     setTimeout(() => {
       if (verifyPassword(password)) {
         createSession()
@@ -50,11 +50,18 @@ export function AccessGate({ children }: AccessGateProps) {
     setPassword("")
   }
 
-  // Loading state while checking session
-  if (isAuthenticated === null) {
+  // Show loading only on initial mount
+  if (!mounted) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <div className="animate-pulse text-muted-foreground">Loading...</div>
+      <div style={{ 
+        minHeight: '100vh', 
+        background: 'linear-gradient(135deg, #0a1628 0%, #1a2744 50%, #0f1419 100%)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        color: '#94a3b8'
+      }}>
+        Loading...
       </div>
     )
   }
@@ -62,91 +69,207 @@ export function AccessGate({ children }: AccessGateProps) {
   // Show login gate if not authenticated
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-[#0a1628] via-[#1a2744] to-[#0f1419] flex items-center justify-center p-4">
-        <div className="w-full max-w-md">
+      <div style={{ 
+        minHeight: '100vh', 
+        background: 'linear-gradient(135deg, #0a1628 0%, #1a2744 50%, #0f1419 100%)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '1rem',
+        fontFamily: 'system-ui, -apple-system, sans-serif'
+      }}>
+        <div style={{ width: '100%', maxWidth: '400px' }}>
           {/* Header */}
-          <div className="text-center mb-8">
-            <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-primary/10 border border-primary/20 mb-6">
-              <Lock className="w-10 h-10 text-primary" />
+          <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+            <div style={{ 
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: '80px',
+              height: '80px',
+              borderRadius: '16px',
+              background: 'rgba(239, 68, 68, 0.1)',
+              border: '1px solid rgba(239, 68, 68, 0.2)',
+              marginBottom: '1.5rem'
+            }}>
+              <Lock style={{ width: '40px', height: '40px', color: '#ef4444' }} />
             </div>
-            <h1 className="text-2xl font-bold text-white mb-2">Internal Access Only</h1>
-            <p className="text-muted-foreground">
-              This tool is restricted to authorized High Cleaning staff.
+            <h1 style={{ 
+              fontSize: '1.5rem', 
+              fontWeight: 'bold', 
+              color: '#ffffff',
+              marginBottom: '0.5rem'
+            }}>
+              Internal Access Only
+            </h1>
+            <p style={{ color: '#94a3b8', fontSize: '0.875rem' }}>
+              This tool is restricted to authorized High Cleaning staff members.
             </p>
           </div>
 
           {/* Login Form */}
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div className="bg-card/50 backdrop-blur-sm border border-border rounded-xl p-6 space-y-4">
-              <div className="space-y-2">
-                <label className="text-sm text-muted-foreground">Access Code</label>
-                <Input
+          <form onSubmit={handleSubmit}>
+            <div style={{
+              background: 'rgba(30, 41, 59, 0.5)',
+              backdropFilter: 'blur(8px)',
+              border: '1px solid rgba(71, 85, 105, 0.3)',
+              borderRadius: '12px',
+              padding: '1.5rem'
+            }}>
+              <div style={{ marginBottom: '1rem' }}>
+                <label style={{ 
+                  display: 'block',
+                  fontSize: '0.875rem',
+                  color: '#94a3b8',
+                  marginBottom: '0.5rem'
+                }}>
+                  Access Code
+                </label>
+                <input
                   type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Enter access code"
-                  className="bg-secondary border-border h-12 text-lg"
                   autoFocus
                   disabled={isLoading}
+                  style={{
+                    width: '100%',
+                    height: '48px',
+                    padding: '0 1rem',
+                    fontSize: '1rem',
+                    background: 'rgba(15, 23, 42, 0.8)',
+                    border: '1px solid rgba(71, 85, 105, 0.5)',
+                    borderRadius: '8px',
+                    color: '#ffffff',
+                    outline: 'none',
+                    boxSizing: 'border-box'
+                  }}
                 />
               </div>
 
               {error && (
-                <div className="text-sm text-red-400 bg-red-500/10 border border-red-500/20 rounded-lg p-3">
+                <div style={{
+                  fontSize: '0.875rem',
+                  color: '#f87171',
+                  background: 'rgba(239, 68, 68, 0.1)',
+                  border: '1px solid rgba(239, 68, 68, 0.2)',
+                  borderRadius: '8px',
+                  padding: '0.75rem',
+                  marginBottom: '1rem'
+                }}>
                   {error}
                 </div>
               )}
 
-              <Button 
+              <button 
                 type="submit" 
-                className="w-full h-12 bg-gradient-to-r from-[#272EF5] to-[#05ED43] hover:opacity-90 text-white font-semibold"
                 disabled={isLoading || !password}
+                style={{
+                  width: '100%',
+                  height: '48px',
+                  background: 'linear-gradient(135deg, #272EF5 0%, #05ED43 100%)',
+                  color: '#ffffff',
+                  fontWeight: '600',
+                  fontSize: '1rem',
+                  border: 'none',
+                  borderRadius: '8px',
+                  cursor: password && !isLoading ? 'pointer' : 'not-allowed',
+                  opacity: password && !isLoading ? 1 : 0.6,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '0.5rem'
+                }}
               >
                 {isLoading ? (
-                  <span className="flex items-center gap-2">
-                    <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                  <>
+                    <span style={{
+                      width: '16px',
+                      height: '16px',
+                      border: '2px solid rgba(255,255,255,0.3)',
+                      borderTopColor: '#ffffff',
+                      borderRadius: '50%',
+                      animation: 'spin 1s linear infinite'
+                    }} />
                     Verifying...
-                  </span>
+                  </>
                 ) : (
-                  <span className="flex items-center gap-2">
+                  <>
                     Access Calculator
-                    <ArrowRight className="w-4 h-4" />
-                  </span>
+                    <ArrowRight style={{ width: '16px', height: '16px' }} />
+                  </>
                 )}
-              </Button>
+              </button>
             </div>
           </form>
 
           {/* Footer */}
-          <div className="mt-6 text-center space-y-4">
+          <div style={{ marginTop: '1.5rem', textAlign: 'center' }}>
             <a 
               href="/"
-              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-white transition-colors"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.5rem',
+                fontSize: '0.875rem',
+                color: '#94a3b8',
+                textDecoration: 'none'
+              }}
             >
-              <Home className="w-4 h-4" />
+              <Home style={{ width: '16px', height: '16px' }} />
               Return to Website
             </a>
             
-            <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground/60">
-              <Shield className="w-3 h-3" />
-              <span>Protected by High Cleaning Security</span>
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '0.5rem',
+              fontSize: '0.75rem',
+              color: 'rgba(148, 163, 184, 0.6)',
+              marginTop: '1rem'
+            }}>
+              <Shield style={{ width: '12px', height: '12px' }} />
+              <span>High Cleaning NJ | Internal Operations Portal</span>
             </div>
           </div>
         </div>
+
+        {/* Spinner animation */}
+        <style>{`
+          @keyframes spin {
+            to { transform: rotate(360deg); }
+          }
+        `}</style>
       </div>
     )
   }
 
-  // User is authenticated - show the app with logout option
+  // User is authenticated - show the app
   return (
-    <div className="relative">
-      {/* Logout button - fixed position */}
+    <div style={{ position: 'relative' }}>
       <button
         onClick={handleLogout}
-        className="fixed bottom-4 right-4 z-50 flex items-center gap-2 px-3 py-2 text-xs text-muted-foreground hover:text-white bg-card/80 backdrop-blur-sm border border-border rounded-lg transition-colors"
+        style={{
+          position: 'fixed',
+          bottom: '1rem',
+          right: '1rem',
+          zIndex: 50,
+          display: 'flex',
+          alignItems: 'center',
+          gap: '0.5rem',
+          padding: '0.5rem 0.75rem',
+          fontSize: '0.75rem',
+          color: '#94a3b8',
+          background: 'rgba(30, 41, 59, 0.8)',
+          backdropFilter: 'blur(8px)',
+          border: '1px solid rgba(71, 85, 105, 0.3)',
+          borderRadius: '8px',
+          cursor: 'pointer'
+        }}
         title="Sign out of calculator"
       >
-        <Lock className="w-3 h-3" />
+        <Lock style={{ width: '12px', height: '12px' }} />
         Sign Out
       </button>
       
@@ -154,4 +277,3 @@ export function AccessGate({ children }: AccessGateProps) {
     </div>
   )
 }
-
