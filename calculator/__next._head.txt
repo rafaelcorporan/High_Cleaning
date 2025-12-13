@@ -2,6 +2,6 @@
 2:I[47639,["/calculator/_next/static/chunks/595fa290de70e49d.js"],"ViewportBoundary"]
 4:I[47639,["/calculator/_next/static/chunks/595fa290de70e49d.js"],"MetadataBoundary"]
 5:"$Sreact.suspense"
-0:{"buildId":"HtPevlUizGkpZGjuEvyX9","rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":"$@3"}],["$","div",null,{"hidden":true,"children":["$","$L4",null,{"children":["$","$5",null,{"name":"Next.Metadata","children":"$@6"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"loading":null,"isPartial":false}
+0:{"buildId":"4mcPtWA2iiHJOAGmvQn9W","rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":"$@3"}],["$","div",null,{"hidden":true,"children":["$","$L4",null,{"children":["$","$5",null,{"name":"Next.Metadata","children":"$@6"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"loading":null,"isPartial":false}
 3:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","2",{"name":"theme-color","content":"#0A1628"}]]
 6:[["$","title","0",{"children":"High Cleaning - Internal Cost Calculator"}],["$","meta","1",{"name":"description","content":"Internal cost analysis and profit margin calculator for High Cleaning NJ. Calculate labor, materials, and overhead for accurate job pricing."}],["$","meta","2",{"name":"generator","content":"v0.app"}]]

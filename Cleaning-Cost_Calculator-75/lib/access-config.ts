@@ -6,8 +6,7 @@
  */
 
 // Access password - Change this to your desired password
-// Default: "HighCleaning2025"
-const ACCESS_PASSWORD = "HighCleaning2025";
+const ACCESS_PASSWORD = "Aa1234567";
 
 // Session duration in hours (how long before requiring re-authentication)
 export const SESSION_DURATION_HOURS = 24;
