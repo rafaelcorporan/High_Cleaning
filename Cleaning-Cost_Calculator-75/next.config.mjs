@@ -4,10 +4,10 @@ const nextConfig = {
   output: 'export',
   
   // Base path for subdirectory deployment
-  basePath: '/cal',
+  basePath: '/cal/app',
   
   // Asset prefix must match basePath for static exports
-  assetPrefix: '/cal',
+  assetPrefix: '/cal/app',
   
   // Trailing slash for clean URLs in static hosting
   trailingSlash: true,

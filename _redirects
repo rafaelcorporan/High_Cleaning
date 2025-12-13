@@ -1,10 +1,12 @@
 # Cloudflare Pages Redirects
 # Note: Cloudflare Pages serves existing files first, then applies redirects
 
-# Calculator SPA routes - only applies when file doesn't exist
-# Static assets in /cal/_next/* are served directly
+# Calculator login page
 /cal  /cal/  301
-/cal/*  /cal/index.html  200
+
+# Calculator app SPA routes
+/cal/app  /cal/app/  301
+/cal/app/*  /cal/app/index.html  200
 
 # Legacy redirect from old path
 /calculator  /cal/  301

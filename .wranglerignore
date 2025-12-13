@@ -1,0 +1,7 @@
+*.af
+**/*.af
+img/FLYER/*.af
+img/FLYER/Tri-Fold_Front.af
+img/FLYER/Tri-Fold_Back.af
+img/FLYER/*.pdf
+**/*.pdf
