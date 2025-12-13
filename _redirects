@@ -2,9 +2,13 @@
 # Note: Cloudflare Pages serves existing files first, then applies redirects
 
 # Calculator SPA routes - only applies when file doesn't exist
-# Static assets in /calculator/_next/* are served directly
-/calculator  /calculator/  301
-/calculator/*  /calculator/index.html  200
+# Static assets in /cal/_next/* are served directly
+/cal  /cal/  301
+/cal/*  /cal/index.html  200
+
+# Legacy redirect from old path
+/calculator  /cal/  301
+/calculator/*  /cal/  301
 
 # Main site SPA fallback - serve index.html for non-existent routes
 /*    /index.html   200

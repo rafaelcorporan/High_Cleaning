@@ -5,8 +5,8 @@ User-agent: *
 Allow: /
 
 # Block internal tools from search engines
-Disallow: /calculator/
-Disallow: /calculator
+Disallow: /cal/
+Disallow: /cal
 
 # Block function endpoints
 Disallow: /api/
