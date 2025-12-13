@@ -5,7 +5,9 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "node server.js"
+    "dev": "node server.js",
+    "build:calculator": "cd Cleaning-Cost_Calculator-75 && npm run build && rm -rf ../calculator && cp -r out ../calculator",
+    "build": "npm run build:calculator"
   },
   "keywords": [
     "cleaning",

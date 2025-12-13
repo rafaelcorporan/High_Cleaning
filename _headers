@@ -6,7 +6,12 @@
   X-XSS-Protection: 1; mode=block
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), microphone=(), camera=()
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://my.spline.design; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://my.spline.design; connect-src 'self' https://api.mailchannels.net
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://my.spline.design; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://my.spline.design; connect-src 'self' https://api.mailchannels.net https://*.cloudflareaccess.com
+
+# Calculator - Internal Only (Protected by Cloudflare Access)
+/calculator/*
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: private, no-cache, no-store, must-revalidate
 
 # Cache static assets
 /img/*

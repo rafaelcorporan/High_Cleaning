@@ -1,0 +1,17 @@
+# High Cleaning NJ - Robots Configuration
+# https://www.robotstxt.org/
+
+User-agent: *
+Allow: /
+
+# Block internal tools from search engines
+Disallow: /calculator/
+Disallow: /calculator
+
+# Block function endpoints
+Disallow: /api/
+Disallow: /functions/
+
+# Sitemap (add your sitemap URL when available)
+# Sitemap: https://yoursite.com/sitemap.xml
+
