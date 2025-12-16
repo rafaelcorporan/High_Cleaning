@@ -1,4 +1,4 @@
 :HL["/cal/app/_next/static/chunks/627a08286b28b794.css","style"]
 :HL["/cal/app/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/cal/app/_next/static/media/a343f882a40d2cc9-s.p.71e1367e.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-0:{"buildId":"bPMq75Gn94Q7A7mgoddu0","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"KUNlJ0Qmwft-jds_uzaMN","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":true},"staleTime":300}

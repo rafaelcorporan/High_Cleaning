@@ -49,8 +49,22 @@ export async function onRequest(context) {
             });
         }
 
-        // Email validation
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        // Strict Input Sanitization & Validation (Parity with server.js)
+        if (name.length > 100 || /[\r\n]/.test(name)) {
+            return new Response(JSON.stringify({
+                success: false,
+                message: 'Invalid company name format'
+            }), {
+                status: 400,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*'
+                },
+            });
+        }
+
+        // Email validation regex (Strict)
+        const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
         if (!emailRegex.test(email)) {
             return new Response(JSON.stringify({
                 success: false,

@@ -8,8 +8,25 @@ const nodemailer = require('nodemailer');
 const cors = require('cors');
 const path = require('path');
 
+const rateLimit = require('express-rate-limit');
+
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Rate limiter configuration
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 5, // Limit each IP to 5 quote requests per windowMs
+  message: {
+    success: false,
+    message: 'Too many requests from this IP, please try again after 15 minutes'
+  },
+  standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
+  legacyHeaders: false, // Disable the `X-RateLimit-*` headers
+});
+
+// Apply rate limiter to the quote endpoint
+app.use('/api/send-quote', limiter);
 
 // Middleware
 app.use(cors());
@@ -55,8 +72,13 @@ app.post('/api/send-quote', async (req, res) => {
       });
     }
 
-    // Email validation regex
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // Strict Input Sanitization & Validation
+    if (name.length > 100 || /[\r\n]/.test(name)) {
+        return res.status(400).json({ success: false, message: 'Invalid company name format' });
+    }
+
+    // Email validation regex (Strict)
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
     if (!emailRegex.test(email)) {
       return res.status(400).json({
         success: false,
